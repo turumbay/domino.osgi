@@ -1,0 +1,19 @@
+target/
+runner/
+
+notes.ini
+filter.properties
+
+#eclipse
+.cache
+.classpath
+.project
+.settings/
+build.properties
+
+#idea
+*.iml
+.idea/
+
+#macos specific
+.DS_Store
