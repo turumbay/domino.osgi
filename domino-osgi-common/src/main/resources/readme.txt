@@ -1,4 +1,6 @@
 Bundles set to provide:
+ - OSGI Declarative Services support
+ - Configuration Management support
  - Scala programming language support
  - Domino Session
  - Logging framework (Pax Logging)

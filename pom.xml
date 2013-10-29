@@ -43,6 +43,7 @@
     <scala.version>2.10.3</scala.version>
     <notes.version>8.5.3</notes.version>
     <pax.logging.version>1.6.10</pax.logging.version>
+    <restlet.version>2.1.0</restlet.version>
   </properties>
 
   <repositories>
@@ -58,6 +59,18 @@
         <checksumPolicy>fail</checksumPolicy>
       </releases>
     </repository>
+    <repository>
+      <id>restlet</id>
+      <url>http://maven.restlet.org</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
   </repositories>
 
   <packaging>pom</packaging>
@@ -67,6 +80,7 @@
     <module>provision</module>
     <module>lotus.domino.notes</module>
     <module>domino-osgi-common</module>
+    <module>org.restlet.jee.org.restlet.ext.servlet</module>
   </modules>
 
   <build>

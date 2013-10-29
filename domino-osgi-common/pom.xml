@@ -33,6 +33,12 @@
       <groupId>org.osgi</groupId>
       <artifactId>osgi_R4_compendium</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr.annotations</artifactId>
+      <version>1.9.6</version>
+      <optional>true</optional>
+    </dependency>
 
     <!--Scala-->
     <dependency>
@@ -60,16 +66,56 @@
       <version>3.1.0</version>
     </dependency>
 
+    <!--Declarative Services-->
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+
+    <!--Configuration Admin amd Configuration Manager-->
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.configadmin</artifactId>
+      <version>1.2.8</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.confman</groupId>
+      <artifactId>pax-confman-propsloader</artifactId>
+      <version>0.2.3</version>
+    </dependency>
+
+    <!--Restlet-->
+    <dependency>
+      <groupId>org.restlet.osgi</groupId>
+      <artifactId>org.restlet</artifactId>
+      <version>${restlet.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.restlet.jee</groupId>
+      <artifactId>org.restlet.ext.servlet</artifactId>
+      <version>${restlet.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.4</version>
+      <optional>true</optional>
+      <scope>provided</scope>
+    </dependency>
+
     <!--Tests-->
     <dependency>
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_2.10</artifactId>
       <version>1.9.2</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.10</version>
+      <scope>test</scope>
     </dependency>
 
     <!--
@@ -80,6 +126,8 @@
       <groupId>lotus.domino</groupId>
       <artifactId>notes</artifactId>
       <version>${notes.version}</version>
+      <optional>true</optional>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.ibm.domino</groupId>
@@ -102,14 +150,7 @@
       <optional>true</optional>
       <scope>provided</scope>
     </dependency>
-    <!--wtf-->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.4</version>
-      <optional>true</optional>
-      <scope>provided</scope>
-    </dependency>
+
   </dependencies>
 
   <build>
