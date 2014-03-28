@@ -16,7 +16,7 @@ class AboutApp extends Application {
     router
   }
 
-  override def getName: String = "about"
+  override def getName: String = "restlet.example"
 }
 
 
