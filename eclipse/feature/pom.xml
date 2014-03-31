@@ -9,5 +9,4 @@
   </parent>
   <artifactId>domino.osgi.common.feature</artifactId>
   <packaging>eclipse-feature</packaging>
-  <version>1.0.0</version>
 </project>
