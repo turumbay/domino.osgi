@@ -1,0 +1,14 @@
+Building Eclipse Update Site:
+
+1. Create local p2 repository and deploy it on localhost:
+> cd p2
+> mvn clean p2:site jetty:run
+See https://github.com/reficio/p2-maven-plugin for details..
+
+
+2. Build update site:
+> mvn clean verify
+See http://wiki.eclipse.org/Tycho/Packaging_Types for details
+
+
+
