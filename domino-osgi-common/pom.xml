@@ -53,6 +53,11 @@
       <artifactId>pax-logging-api</artifactId>
       <version>${pax.logging.version}</version>
     </dependency>
+    <dependency>
+        <groupId>org.ops4j.pax.logging</groupId>
+        <artifactId>pax-logging-service</artifactId>
+        <version>${pax.logging.version}</version>
+    </dependency>
 
     <!--Scheduling-->
     <dependency>
@@ -70,7 +75,7 @@
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>org.apache.felix.scr</artifactId>
-      <version>1.4.0</version>
+      <version>1.6.2</version>
     </dependency>
 
     <!--Configuration Admin amd Configuration Manager-->

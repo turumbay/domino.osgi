@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/domino.osgi.common.feature_1.0.0.201310240008.jar" id="domino.osgi.common.feature" version="1.0.0.qualifier">
+       <!--https://wiki.eclipse.org/Tycho/Reproducible_Version_Qualifiers-->
+      <category name="turumbay.domino.osgi"/>
+   </feature>
+   <category-def name="turumbay.domino.osgi" label="Domino Enhanced Plugins. Turumbay Edition">
+      <description>
+         Bundles set to provide:
+ - OSGI Declarative Services support
+ - Configuration Management support
+ - Scala programming language support
+ - Domino Session
+ - Logging framework (Pax Logging)
+ - Scheduling framework (Apache Sling Scheduler)
+ - REST framework (Restlet)
+      </description>
+   </category-def>
+</site>
