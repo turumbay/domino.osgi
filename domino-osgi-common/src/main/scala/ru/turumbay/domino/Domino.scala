@@ -2,7 +2,6 @@ package ru.turumbay.domino
 
 import lotus.domino._
 import com.ibm.domino.osgi.core.context.ContextInfo
-import scala.annotation.tailrec
 
 case class Domino[A <: Domino.Recyclable ](value:A){
   def map[B](f: A => B) = Domino.using(value)(f)
@@ -16,7 +15,8 @@ object Domino extends Logging{
     implicit def toDomino[A <: Recyclable](a:A) = Domino(a)
     implicit def toRichCollection(collection:DocumentCollection) = RichCollection(collection)
     implicit def toRichCollection(view:View) = RichCollection(view)
-    implicit def toRichNavigator(nav:ViewNavigator) = RichNavigator(nav)
+    implicit def toRichCollection(nav:ViewNavigator) = RichCollection(nav)
+
     implicit def toRichDocument(doc:Document) = RichDocument(doc)
   }
 
