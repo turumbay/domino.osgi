@@ -15,6 +15,8 @@ object Domino extends Logging{
   object implicits{
     implicit def toDomino[A <: Recyclable](a:A) = Domino(a)
     implicit def toRichCollection(collection:DocumentCollection) = RichCollection(collection)
+    implicit def toRichCollection(view:View) = RichCollection(view)
+    implicit def toRichNavigator(nav:ViewNavigator) = RichNavigator(nav)
     implicit def toRichDocument(doc:Document) = RichDocument(doc)
   }
 

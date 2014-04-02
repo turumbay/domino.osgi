@@ -3,7 +3,9 @@ package ru.turumbay.domino
 import lotus.domino.{Document, DocumentCollection}
 import scala.annotation.tailrec
 
-class RichCollection(collection:DocumentCollection){
+
+class RichCollection[A <: { def getNextDocument(doc:Document):Document
+                            def getFirstDocument():Document }](collection:A){
   def map[T](f: Document => T): List[T] = {
     @tailrec
     def iteration(doc: Option[Document], acc: List[T]): List[T] = doc match {
@@ -26,5 +28,6 @@ class RichCollection(collection:DocumentCollection){
 }
 
 object RichCollection{
-  def apply(collection:DocumentCollection) = new RichCollection(collection)
+  def apply[A  <: { def getNextDocument(doc:Document):Document
+    def getFirstDocument():Document }](collection:A) = new RichCollection[A](collection)
 }
