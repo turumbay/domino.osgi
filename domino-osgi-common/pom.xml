@@ -22,6 +22,17 @@
 
   <packaging>bundle</packaging>
 
+  <distributionManagement>
+    <repository>
+      <id>turumbay.release.repo</id>
+      <url>https://raw.github.com/turumbay/maven/master/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>turumbay.snapshot.repo</id>
+      <url>https://raw.github.com/turumbay/maven/master/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <dependencies>
 
     <!--OSGI base-->

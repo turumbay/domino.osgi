@@ -4,35 +4,29 @@ import lotus.domino.{ViewEntry, Document, ViewNavigator}
 import scala.annotation.tailrec
 import ru.turumbay.domino.Domino.Recyclable
 
-class RichCollection[C <: Recyclable,X <: Recyclable](xs: C, nextA: (C, X) => X, firstA: C => X, filter: X => Boolean = (x: X) => true) {
-  def map[T](f: X => T): List[T] = {
+class RichCollection[A <: Recyclable,C <: Recyclable](xs: C, firstA: C => A, nextA: (C, A) => A,  filter: A => Boolean = (x: A) => true) {
+  def map[T](f: A => T): List[T] = {
     @tailrec
-    def iteration(docOption: Option[X], acc: List[T]): List[T] = docOption match {
+    def iteration(currentEl: Option[A], acc: List[T]): List[T] = currentEl match {
       case None => acc
-      case Some(doc) => {
-        val (next: Option[X], result: List[T]) = Domino.using(doc) {
-          doc =>
-
-          /**
-           * f should be applied before retrieving next document, otherwise, if
-           * f throws exception - next would not be recycled
-           */
-            (
-              if (filter(doc)) f(doc) :: acc else acc, // new acc
-              Option(nextA(xs, doc)) // new next
-              ).swap
+      case Some(el) => {
+        val (newAcc: List[T], newCurrent: Option[A]) = Domino.using(el) { doc =>
+          (if (filter(doc)) f(doc)::acc else acc, Option(nextA(xs, doc)))
         }
-        iteration(next, result)
+        iteration(newCurrent, newAcc)
       }
     }
+    
     iteration(Option(firstA(xs)), Nil)
   }
 
-  def flatMap[T](f: X => T) = map(f)
+  def flatMap[T](f: A => T) = map(f)
 
-  def withFilter(p: X => Boolean): RichCollection[C, X] = {
-    new RichCollection(xs, nextA, firstA, (x: X) => filter(x) && p(x))
+  def withFilter(p: A => Boolean): RichCollection[A, C] = {
+    new RichCollection(xs, firstA, nextA, (x: A) => filter(x) && p(x))
   }
+
+  def filter(p: A=>Boolean):RichCollection[A,C] = withFilter(p)
 }
 
 object RichCollection {
@@ -42,9 +36,9 @@ object RichCollection {
     def recycle(): Unit
   }
 
-  def apply[B <: WithFirstAndNextDocument](xs: B) = new RichCollection[B, Document](xs, _.getNextDocument(_), _.getFirstDocument())
+  def apply[B <: WithFirstAndNextDocument](xs: B) = new RichCollection[Document,B](xs, _.getFirstDocument(), _.getNextDocument(_))
 
-  def apply(nav: ViewNavigator) = new RichCollection[ViewNavigator, ViewEntry](nav, _.getNext(_), _.getFirst)
+  def apply(nav: ViewNavigator) = new RichCollection[ViewEntry, ViewNavigator](nav, _.getFirst, _.getNext(_))
 }
 
 

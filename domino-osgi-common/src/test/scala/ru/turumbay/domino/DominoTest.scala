@@ -5,8 +5,8 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.matchers.ShouldMatchers._
 
-import Domino.implicits._
-import ru.turumbay.domino.Domino.Session
+import ru.turumbay.domino.Domino.implicits._
+
 
 @RunWith(classOf[JUnitRunner])
 class DominoTest extends FunSuite{
