@@ -40,6 +40,7 @@ object Domino extends Logging{
   def dominoOsgiCoreContextSession: Option[Session] =
     try{
       Option(ContextInfo.getUserSession)
+
     }catch{
       case _:NoClassDefFoundError => None
     }

@@ -24,7 +24,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ru.turumbay.domino</groupId>
   <artifactId>domino-osgi-pom</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.1</version>
 
   <name>ru.turumbay.domino.osgi-common (OSGi project)</name>
 
@@ -40,7 +40,7 @@
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <scala.version>2.10.3</scala.version>
+    <scala.version>2.11.6</scala.version>
     <notes.version>8.5.3</notes.version>
     <pax.logging.version>1.6.10</pax.logging.version>
     <restlet.version>2.1.0</restlet.version>

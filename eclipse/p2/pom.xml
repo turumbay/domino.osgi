@@ -24,7 +24,7 @@
                                 <!-- specify your depencies here -->
                                 <!-- groupId:artifactId:version -->
                                 <artifact>
-                                    <id>ru.turumbay.domino:domino-osgi-common:1.0-SNAPSHOT</id>
+                                    <id>ru.turumbay.domino:domino-osgi-common:1.0.1</id>
                                 </artifact>
                             </artifacts>
                         </configuration>
